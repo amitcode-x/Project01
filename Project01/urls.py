@@ -17,9 +17,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from app.views import check
+from app.views import *
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('check/', check, name= 'check')
+    path('insert_Topic/', insert_Topic, name= 'insert_Topic'),
+    path('insert_webpage/', insert_webpage, name= 'insert_webpage'),
+    path('insert_Accessrecord/', insert_Accessrecord , name="insert_Accessrecord")
 ]
