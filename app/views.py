@@ -26,7 +26,10 @@ def insert_webpage(request):
         ur = input('enter the url:')
         TWO = Webpage.objects.get_or_create(topic =STO, name=na, url =ur)
         if TWO[1]:
-            return HttpResponse('New webpage is created')
+            LOW = Webpage.objects.all()
+            print('Existing Webpages')
+            d = {'webpages': LOW}
+            return render(request, 'Display_webpage.HTML', d)
         else:
             return HttpResponse('Webpage is already present')
     else:
@@ -36,19 +39,38 @@ def insert_Accessrecord(request):
     print('Existing Web pages')
     for wp in Webpage.objects.all():
         print(wp.name)
-    wn = input('Enter the webpage name')
-    LWO = Webpage.objects.filter(name = wn)
+    n = input('Enter the name')
+    LWO = Webpage.objects.filter(name = n)
     if LWO:
         SWO =LWO[0]    
         at = input('Enter the author name :')
         da = input('Enter the date:')
-        TWO = AccessRecord.objects.get_or_create(name = SWO,Author = at ,date = da,)
+        TWO = AccessRecord.objects.get_or_create(name = SWO,author = at ,date = da,)
         if TWO[1]:
-            return HttpResponse('New accessrecord is created')
+            LOA = AccessRecord.objects.all()
+            print('Existing Accessrecords')
+            d = {'accessrecords': LOA}
+            return render(request, 'Display_access.HTML', d)
         else:
             return HttpResponse('Accessrecord is already present')
         
     else:
         return HttpResponse('Webpage is not present')
     
+
+
+def display_topic(request):
+    LOT = Topic.objects.all()
+    d = {'topics': LOT}
+    return render(request, 'Display_Topic.HTML', d)
+
+def display_webpage(request):
+    LOW = Webpage.objects.all()
+    d = {'webpages': LOW}
+    return render(request, 'Display_webpage.HTML', d) 
+
+def display_Accessrecord(request):
+    LOA = AccessRecord.objects.all()
+    d = {'accessrecords': LOA}
+    return render(request, 'Display_access.HTML', d)
     

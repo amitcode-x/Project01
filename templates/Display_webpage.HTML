@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web page data</title>
+</head>
+
+<body>
+
+    <center>
+        <h1>Webpage data</h1>
+
+        <table border="1" cellpadding="10" cellspacing="0">
+            <tr>
+                <th>pk/id</th>
+                <th>Topic Name</th>
+                <th>Name</th>
+                <th>URL</th>
+            </tr>
+
+            {% for WP in webpages %}
+            <tr>
+                <td>{{WP.id}}</td>
+                <td>{{WP.topic}}</td>
+                <td>{{WP.name}}</td>
+                <td>{{WP.url}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </center>
+
+</body>
+
+</html>
