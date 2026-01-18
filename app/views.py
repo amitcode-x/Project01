@@ -30,7 +30,7 @@ def insert_webpage(request):
             print('Existing Webpages')
             d = {'webpages': LOW}
             return render(request, 'Display_webpage.HTML', d)
-        else:
+        else:     
             return HttpResponse('Webpage is already present')
     else:
         return HttpResponse('Topic is not present')
