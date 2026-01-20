@@ -73,4 +73,4 @@ def display_Accessrecord(request):
     LOA = AccessRecord.objects.all()
     d = {'accessrecords': LOA}
     return render(request, 'Display_access.HTML', d)
-    
+        
