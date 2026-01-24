@@ -61,16 +61,33 @@ def insert_Accessrecord(request):
 
 def display_topic(request):
     LOT = Topic.objects.all()
+    # LOT = Topic.objects.filter(topic_name__startswith = 'C')
+    # LOT = Topic.objects.filter(topic_name__endswith='l')
+    # LOT = Topic.objects.filter(topic_name__contains='cr')
+    # LOT = Topic.objects.filter(topic_name__regex='^F\w+')
     d = {'topics': LOT}
     return render(request, 'Display_Topic.HTML', d)
 
 def display_webpage(request):
     LOW = Webpage.objects.all()
+    
+    # LOW = Webpage.objects.filter(pk__in=(1,5))
+    
+    # LOW = Webpage.objects.filter(pk__range=(1,5))
+    # LOW = Webpage.objects.filter(pk__gt = 3)
+    # LOW = Webpage.objects.filter(pk__lt = 3)
+    # LOW = Webpage.objects.filter(pk__lte = 3)
+    # LOW = Webpage.objects.filter(pk__gte = 5)
+
     d = {'webpages': LOW}
     return render(request, 'Display_webpage.HTML', d) 
 
 def display_Accessrecord(request):
     LOA = AccessRecord.objects.all()
+    # LOA = AccessRecord.objects.filter(date = '1999-03-12')
+    # LOA = AccessRecord.objects.filter(date__month = 7)
+    # LOA = AccessRecord.objects.filter(date__day = 12)
+    LOA = AccessRecord.objects.filter(date__year= 1999)
     d = {'accessrecords': LOA}
     return render(request, 'Display_access.HTML', d)
         
