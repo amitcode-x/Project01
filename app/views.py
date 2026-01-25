@@ -87,7 +87,7 @@ def display_Accessrecord(request):
     # LOA = AccessRecord.objects.filter(date = '1999-03-12')
     # LOA = AccessRecord.objects.filter(date__month = 7)
     # LOA = AccessRecord.objects.filter(date__day = 12)
-    LOA = AccessRecord.objects.filter(date__year= 1999)
+    LOA = AccessRecord.objects.filter(date__year= 1999) 
     d = {'accessrecords': LOA}
     return render(request, 'Display_access.HTML', d)
         
